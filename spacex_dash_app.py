@@ -75,8 +75,8 @@ def build_graph(site_dropdown):
         return piechart
     else:
         #specific_df = spacex_df['Launch Site']
-        specific_df=spacex_df.loc[spacex_df['Launch Site'] == site_dropdown]
-        piechart = px.pie(data_frame = specific_df, names='class',title='Total Launch for a Specific Site')
+        special_df=spacex_df.loc[spacex_df['Launch Site'] == site_dropdown]
+        piechart = px.pie(data_frame = special_df, names='class',title='Total Launch for a Specific Site')
         return piechart
 
 # TASK 4:
@@ -89,16 +89,16 @@ def build_graph(site_dropdown):
 
 def update_graph(site_dropdown, payload_slider):
     if site_dropdown == 'ALL':
-        filtered_data = spacex_df[(spacex_df['Payload Mass (kg)']>=payload_slider[0])
+        filled_data = spacex_df[(spacex_df['Payload Mass (kg)']>=payload_slider[0])
         &(spacex_df['Payload Mass (kg)']<=payload_slider[1])]
-        scatterplot = px.scatter(data_frame=filtered_data, x="Payload Mass (kg)", y="class", 
+        scatterplot = px.scatter(data_frame=filled_data, x="Payload Mass (kg)", y="class", 
         color="Booster Version Category")
         return scatterplot
     else:
-        specific_df=spacex_df.loc[spacex_df['Launch Site'] == site_dropdown]
-        filtered_data = specific_df[(specific_df['Payload Mass (kg)']>=payload_slider[0])
+        special_df=spacex_df.loc[spacex_df['Launch Site'] == site_dropdown]
+        filled_data = special_df[(specific_df['Payload Mass (kg)']>=payload_slider[0])
         &(spacex_df['Payload Mass (kg)']<=payload_slider[1])]
-        scatterplot = px.scatter(data_frame=filtered_data, x="Payload Mass (kg)", y="class", 
+        scatterplot = px.scatter(data_frame=filled_data, x="Payload Mass (kg)", y="class", 
         color="Booster Version Category")
         return scatterplot
 
